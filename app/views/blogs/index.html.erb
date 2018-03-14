@@ -37,10 +37,36 @@
       <h2 class="blog-headline">Recent Blogs</h2>
       <div class="blog-box">
         <!-- 第三回でここから書き換える -->
+         <% @blogs.each do |blog| %>
+        <!-- =を外すと、画面に出力されなくなる -->
+        <div class="blog-item clearfix">
+          <%= image_tag "img/forest.jpg",class: "blog-image"  %>
+          <!-- <img class="blog-image" src="img/forest.jpg"> -->
+          <!-- imgタグはhtmlのタグで、画像を表示させるもの -->
+          <section class="blog-text">
+            <h3 class="blog-text-headline">
+          <!-- ここにタイトルを表示 -->
+          <%= link_to blog.title, "/blogs/#{blog.id}" %>
+            </h3>
+            <p class="blog-date">
+              <!-- 日付 -->
+              <%= blog.created_at %>
+            </p>
+            <span class="category">
+              <!-- カテゴリーを表示 -->
+              <%= blog.category %>
+            </span>
+          </section>
+        </div>
+        <% end %>
+
+
+        <!--
+        <div class="i">
         <div class="blog-item clearfix">
           <%= image_tag "img/forest.jpg",
             class: "blog-image" %>
-          <!-- <img class="blog-image" src="img/forest.jpg"> -->
+          #<img class="blog-image" src="img/forest.jpg">
           <section class="blog-text">
             <h3 class="blog-text-headline">
               <a href="single.html">
@@ -52,11 +78,11 @@
             <p class="blog-date">June 19, 2017</p>
             <span class="category">Nature</span>
           </section>
-        </div>
+        </div>s
         <div class="blog-item clearfix">
           <%= image_tag "img/desert.jpg",
             class: "blog-image" %>
-          <!-- <img class="blog-image" src="img/desert.jpg"> -->
+            #<img class="blog-image" src="img/desert.jpg">
           <section class="blog-text">
             <h3 class="blog-text-headline">
               <a href="single.html">
@@ -72,7 +98,7 @@
         <div class="blog-item clearfix">
           <%= image_tag "img/sunset.jpg",
             class: "blog-image" %>
-          <!-- <img class="blog-image" src="img/sunset.jpg"> -->
+            #<img class="blog-image" src="img/sunset.jpg">
           <section class="blog-text">
             <h3 class="blog-text-headline">
               <a href="single.html">
@@ -87,7 +113,7 @@
         <div class="blog-item clearfix">
           <%= image_tag "img/italy.jpg",
             class: "blog-image" %>
-          <!-- img class="blog-image" src="img/italy.jpg"> -->
+            #img class="blog-image" src="img/italy.jpg">
           <section class="blog-text">
             <h3 class="blog-text-headline">
               <a href="single.html">
@@ -102,7 +128,7 @@
         <div class="blog-item clearfix">
           <%= image_tag "img/asia.jpg",
             class: "blog-image" %>
-          <!-- <img class="blog-image" src="img/asia.jpg"> -->
+            #<img class="blog-image" src="img/asia.jpg">
           <section class="blog-text">
             <h3 class="blog-text-headline">
               <a href="single.html">
@@ -113,7 +139,8 @@
             <p class="blog-date">June 14, 2017</p>
             <span class="category">Culture</span>
           </section>
-        </div>
+        </div> 
+      -->
         <!-- ここまで -->
       </div>
       <div class="pagination">
