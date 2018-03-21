@@ -52,10 +52,20 @@
           </p>
             </div>
 
+             <!--   attachment_image_tag @blog, :image, :fill, 300, 300, format: "jpeg" %> -->
               <div class="single_image"></div>
+               <%= attachment_image_tag @blog, :blog_image %>
+              </div>
               <p class="single_text">
             <!-- 本文 -->
             <%= @blog.body %>
+            <br>
+            <br>
+            <%= link_to "編集", edit_blog_path(@blog.id) %>
+            <!--<%= link_to "編集", edit_blog_path(@blog.id), method: :get %>  : デフォルトでget --> 
+            <!-- rake routesで確認できるprefix(名前付きパス)を使用 -->
+            <%= link_to "削除", blog_path(@blog.id),method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <%= link_to "戻る", blogs_path %>
               </p>
 
 

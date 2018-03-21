@@ -5,6 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "pg", group: :production
+
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+
+gem "refile-mini_magick"
+
+gem "pry-rails"
+#追加したやつ
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'

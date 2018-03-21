@@ -40,7 +40,8 @@
          <% @blogs.each do |blog| %>
         <!-- =を外すと、画面に出力されなくなる -->
         <div class="blog-item clearfix">
-          <%= image_tag "img/forest.jpg",class: "blog-image"  %>
+          <!--  image_tag "img/forest.jpg",class: "blog-image"  ← <%= %> ではさむ -->
+          <%= attachment_image_tag blog, :blog_image, class: "blog-image" %>
           <!-- <img class="blog-image" src="img/forest.jpg"> -->
           <!-- imgタグはhtmlのタグで、画像を表示させるもの -->
           <section class="blog-text">
@@ -48,6 +49,7 @@
           <!-- ここにタイトルを表示 -->
           <%= link_to blog.title, "/blogs/#{blog.id}" %>
             </h3>
+
             <p class="blog-date">
               <!-- 日付 -->
               <%= blog.created_at %>
@@ -56,6 +58,7 @@
               <!-- カテゴリーを表示 -->
               <%= blog.category %>
             </span>
+
           </section>
         </div>
         <% end %>
